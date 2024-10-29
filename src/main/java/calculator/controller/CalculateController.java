@@ -1,6 +1,7 @@
 package calculator.controller;
 
 import calculator.model.CalculatorService;
+import calculator.view.ConsoleView;
 
 import java.util.Scanner;
 
@@ -10,8 +11,8 @@ public class CalculateController {
         this.calculatorService = CalculatorService.createService();
     }
     public void calculate() {
-        Scanner scanner = new Scanner(System.in);
-        String inputStr = scanner.nextLine();
-        System.out.printf("결과 : %s", calculatorService.stringAdd(inputStr));
+        String inputStr = ConsoleView.getInput();
+        Integer result = calculatorService.stringAdd(inputStr);
+        ConsoleView.printOutput(result);
     }
 }
