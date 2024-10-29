@@ -1,6 +1,7 @@
 package calculator.model;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class CalculatorService {
     private final Calculator calculator;
@@ -17,8 +18,9 @@ public class CalculatorService {
 
     public Integer stringAdd(String inputStr) {
         String[] parsedStrArr = this.calculatorParser.parseInput(inputStr);
-        System.out.printf("parsedStrArr : %s\n", Arrays.toString(parsedStrArr));
-
+        if (Objects.equals(parsedStrArr[0], "")) {
+            return 0;
+        }
         Integer[] parsedNumArr = Arrays.stream(parsedStrArr).map(str -> {
                                                 CalculatorValidator.verifyPositiveInteger(str);
                                                 return Integer.valueOf(str);
