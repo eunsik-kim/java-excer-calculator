@@ -40,13 +40,6 @@ public class CalculatorParser {
         return inputStr.split(delimiters);
     }
 
-    private static class CustomDelimiterResult {
-        private final String delimiter;
-        private final String numbers;
-
-        public CustomDelimiterResult(String delimiter, String numbers) {
-            this.delimiter = delimiter;
-            this.numbers = numbers;
-        }
+    private record CustomDelimiterResult(String delimiter, String numbers) {
     }
 }
