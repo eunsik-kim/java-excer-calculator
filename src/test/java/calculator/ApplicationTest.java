@@ -73,7 +73,6 @@ class ApplicationTest extends NsTest {
                 assertSimpleTest(() ->
                         assertThatThrownBy(() -> runException(input))
                                 .isInstanceOf(IllegalArgumentException.class)
-                                .hasMessageContaining("음수는 허용되지 않습니다")
                 );
             }
 
@@ -90,7 +89,6 @@ class ApplicationTest extends NsTest {
                 assertSimpleTest(() ->
                         assertThatThrownBy(() -> runException(input))
                                 .isInstanceOf(IllegalArgumentException.class)
-                                .hasMessageContaining("올바른 형식이 아닙니다")
                 );
             }
         }

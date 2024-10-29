@@ -17,9 +17,12 @@ public class CalculatorService {
 
     public Integer stringAdd(String inputStr) {
         String[] parsedStrArr = this.calculatorParser.parseInput(inputStr);
-        Integer[] parsedNumArr = Arrays.stream(parsedStrArr)
-                .map(Integer::valueOf)
-                .toArray(Integer[]::new);
+        System.out.printf("parsedStrArr : %s\n", Arrays.toString(parsedStrArr));
+
+        Integer[] parsedNumArr = Arrays.stream(parsedStrArr).map(str -> {
+                                                CalculatorValidator.verifyPositiveInteger(str);
+                                                return Integer.valueOf(str);
+                                            }).toArray(Integer[]::new);
         return this.calculator.sumArray(parsedNumArr);
     }
 }

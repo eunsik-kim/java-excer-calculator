@@ -25,11 +25,11 @@ public class CalculatorParser {
         //  Custom 구분자는 // 와 \n 사이에 존재
         Pattern pattern = Pattern.compile("//(.*?)\\\\n(.*)");
         Matcher matcher = pattern.matcher(inputStr);
-
         if (!matcher.find()) {
             throw new IllegalArgumentException("Invalid custom delimiter format");
         }
 
+        CalculatorValidator.verifyCustomDelimiter(matcher.group(1));
         return new CustomDelimiterResult(
                 matcher.group(1),  // delimiter
                 matcher.group(2)   // numbers
