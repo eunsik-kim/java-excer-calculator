@@ -17,7 +17,7 @@ public class CalculatorValidator {
 
     // 커스텀 구분자가 기호로 구성되어 있는지 확인
     public static void verifyCustomDelimiter (String delimiter) {
-        if (delimiter.matches("[+-]?\\\\d+(\\\\.\\\\d+)?")) {
+        if (!delimiter.matches("^[^0-9]+$")) {
             throw new IllegalArgumentException("커스텀 구분자는 숫자가 될 수 없습니다. 입력 : " + delimiter);
         }
 
