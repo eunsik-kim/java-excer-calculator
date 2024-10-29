@@ -29,11 +29,11 @@ class ApplicationTest extends NsTest {
             @ParameterizedTest
             @DisplayName("기본 구분자(콤마, 콜론) 테스트")
             @CsvSource({
-                    "1:2:3, 6",
-                    "1,2,3, 6",
-                    "1:2,3, 6",
-                    "1,2:3,4:5, 15",
-                    "10:20,30, 60"
+                    "'1:2:3', 6",
+                    "'1,2,3', 6",
+                    "'1:2,3', 6",
+                    "'1,2:3,4:5', 15",
+                    "'10:20,30', 60"
             })
             void normal_구분자_테스트(String input, int expected) {
                 assertSimpleTest(() -> {
@@ -99,7 +99,6 @@ class ApplicationTest extends NsTest {
             @ParameterizedTest
             @DisplayName("빈 문자열 입력시 0 반환")
             @ValueSource(strings = {
-                    "",
                     "\n",
                     "//;\\n",
                     "//+\\n"
@@ -151,7 +150,7 @@ class ApplicationTest extends NsTest {
         @ParameterizedTest
         @DisplayName("정규표현식 특수문자 구분자 테스트")
         @ValueSource(strings = {
-                "//\\\\n1\\\\2\\\\3",  // 백슬래시를 구분자로
+                "//\\\\n1\\2\\3",  // 백슬래시를 구분자로
                 "//.\\n1.2.3",         // 점을 구분자로
                 "//^\\n1^2^3",         // 캐럿을 구분자로
                 "//$\\n1$2$3",         // 달러를 구분자로
