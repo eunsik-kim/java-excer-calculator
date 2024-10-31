@@ -1,4 +1,8 @@
-package calculator.model;
+package calculator.service;
+
+import calculator.model.Calculator;
+import calculator.model.CalculatorParser;
+import calculator.model.CalculatorValidator;
 
 import java.util.Arrays;
 import java.util.Objects;
