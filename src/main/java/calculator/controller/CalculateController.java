@@ -1,6 +1,6 @@
 package calculator.controller;
 
-import calculator.service.CalculatorService;
+import calculator.model.service.CalculatorService;
 import calculator.view.ConsoleView;
 
 public class CalculateController {

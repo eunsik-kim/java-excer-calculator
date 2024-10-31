@@ -1,8 +1,8 @@
-package calculator.service;
+package calculator.model.service;
 
-import calculator.model.Calculator;
-import calculator.model.CalculatorParser;
-import calculator.model.CalculatorValidator;
+import calculator.model.domain.Calculator;
+import calculator.model.domain.CalculatorParser;
+import calculator.model.domain.CalculatorValidator;
 
 import java.util.Arrays;
 import java.util.Objects;

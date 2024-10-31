@@ -1,9 +1,8 @@
-package calculator.model;
+package calculator.model.domain;
 
 import calculator.exception.InvalidDelimiterException;
 import calculator.exception.InvalidInputException;
 
-import java.sql.Array;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

@@ -1,4 +1,4 @@
-package calculator.model;
+package calculator.model.domain;
 
 import calculator.exception.InvalidInputException;
 import calculator.exception.NegativeNumberException;
