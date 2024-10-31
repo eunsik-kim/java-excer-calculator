@@ -1,5 +1,8 @@
 package calculator.model;
 
+import calculator.exception.InvalidDelimiterException;
+import calculator.exception.InvalidInputException;
+
 import java.sql.Array;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,7 +10,7 @@ import java.util.regex.Pattern;
 public class CalculatorParser {
     public String[] parseInput(String inputStr) {
         if (inputStr == null) {
-            throw new IllegalArgumentException("Input cannot be null");
+            throw new InvalidInputException("입력이 null 될 수 없습니다. ", null);
         }
 
         String delimiters = ",|:"; // 기본 구분자는 , or :
@@ -23,13 +26,13 @@ public class CalculatorParser {
     }
     private CustomDelimiterResult parseCustomDelimiter(String inputStr) {
         if (!inputStr.contains("\\n")) {
-            throw new IllegalArgumentException("Invalid custom delimiter format");
+            throw new InvalidDelimiterException(inputStr);
         }
         //  Custom 구분자는 // 와 \n 사이에 존재
         Pattern pattern = Pattern.compile("//(.*?)\\\\n(.*)");
         Matcher matcher = pattern.matcher(inputStr);
         if (!matcher.find()) {
-            throw new IllegalArgumentException("Invalid custom delimiter format");
+            throw new InvalidDelimiterException(inputStr);
         }
 
         CalculatorValidator.verifyCustomDelimiter(matcher.group(1));
